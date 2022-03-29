@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Adn
+ * @package   Adn\Logger
+ * @copyright 2022 Adn
+ * @license   OSL-3.0 https://opensource.org/licenses/OSL-3.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Psr\Log\LoggerInterface"
+                type="Adn\Logger\Model\Monolog"/>
+    <preference for="Magento\Cron\Model\VirtualLoggerHandler"
+                type="Adn\Logger\Model\Handler\StdoutHandler"/>
+    <preference for="Magento\Cron\Model\VirtualLogger"
+                type="Adn\Logger\Model\Monolog"/>
+    <preference for="Magento\Payment\Model\Method\VirtualDebug"
+                type="Adn\Logger\Model\Handler\StdoutHandler"/>
+    <preference for="Magento\Shipping\Model\Method\VirtualLogger"
+                type="Adn\Logger\Model\Monolog"/>
+    <preference for="Magento\Payment\Model\Method\VirtualDebug"
+                type="Adn\Logger\Model\Handler\StdoutHandler"/>
+    <preference for="Magento\Payment\Model\Method\VirtualLogger"
+                type="Adn\Logger\Model\Monolog"/>
+    <type name="Adn\Logger\Model\Handler\StdoutHandler">
+        <arguments>
+            <argument name="formatter" xsi:type="object">
+                Monolog\Formatter\LineFormatter
+            </argument>
+        </arguments>
+    </type>
+    <type name="Adn\Logger\Model\Monolog">
+        <arguments>
+            <argument name="name" xsi:type="string">main</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="stdout" xsi:type="object">
+                    Adn\Logger\Model\Handler\StdoutHandler
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

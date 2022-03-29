@@ -1,0 +1,36 @@
+{
+  "name": "adn-magento/logger",
+  "description": "Adn Magento Logger Stdout",
+  "keywords": [
+    "adn",
+    "magento",
+    "log",
+    "logging",
+    "psr-3"
+  ],
+  "type": "magento2-module",
+  "authors": [
+    {
+      "name": "Aurélien André",
+      "email": "adn.magento@gmail.com"
+    }
+  ],
+  "license": [
+    "OSL-3.0"
+  ],
+  "version": "100.0.0",
+  "require": {
+    "php": "~7.4.0",
+    "magento/framework": "103.0.*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Adn\\Logger\\": ""
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
